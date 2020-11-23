@@ -84,10 +84,11 @@ function App() {
           item.count = parseInt(count);
 
           document.getElementById("subtotal").innerHTML =
-            "$" +
+          
+            "subtotal: $" +
             Math.round(cart.reduce((a, c) => a + c.price * c.count, 0) * 100) /
               100;
-
+             
           localStorage.setItem("cartItemsMIT", JSON.stringify(cart));
         }
       });
@@ -134,10 +135,8 @@ function App() {
             />
           </td>
 
-          <td
-            id={"total-" + item.id}
-          >
-            ${Math.round(item.count * item.price * 100) / 100}
+          <td>
+           { item.price}
           </td>
 
         
@@ -145,15 +144,15 @@ function App() {
       ));
 
       return (
-        <div className="row sec-mar">
-          <div className="col-md-12 col-sm-12">
+        <div className="row ">
+         
             <table className="table_shop">
               <tbody>
                 {listItems}
 
                 <tr>
-                  <td id="subtotal">
-                    <h2> subtotal: ${Math.round(
+                  <td>
+                    <h2 id="subtotal"> subtotal: ${Math.round(
                       cart.reduce((a, c) => a + c.price * c.count, 0) * 100
                     ) / 100}
                     </h2>
@@ -162,8 +161,8 @@ function App() {
                 </tr>
               </tbody>
             </table>
-          </div>
-          {/*shop table*/}
+         
+         
         </div>
       );
     } else
@@ -204,7 +203,7 @@ function App() {
   if (loadingState === false) {
     if (errorMsg === false) {
       return (
-        <div className="row">
+        <div className="row top">
           <div className="col-2">
             {product.map((p) => (
               <Product key={p.id} product={p}></Product>
@@ -221,14 +220,14 @@ function App() {
       );
     } else {
       return (
-        <div className="row">
+        <div className="row top">
           <p>{errorMsg}</p>
         </div>
       );
     }
   } else {
     return (
-      <div className="row">
+      <div className="row top">
         <div className="col-1">
           <span className="fa fa-spinner fa-pulse fa-3x fa-fw text-primary"></span>
           <p>Loading . . .</p>

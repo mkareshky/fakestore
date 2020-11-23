@@ -89,3 +89,6 @@ button.right {
   display:block;
 
 }
+.row.top {
+  align-items: flex-start;
+}
