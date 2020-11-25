@@ -109,8 +109,8 @@ function App() {
           <td>
             <input
               id={"count" + item.id}
-              min="1"
-              max="100"
+              min="0"
+              // max="100"
               type="number"
               defaultValue={item.count}
               title="Qty"
@@ -205,7 +205,7 @@ function App() {
       return (
         <div className="row top">
           <div className="col-2">
-            {product.map((p) => (
+            {product.slice(0, 5).map((p) => (
               <Product key={p.id} product={p}></Product>
             ))}
           </div>
